@@ -3,7 +3,6 @@ package coding.dojo.fizz.buzz.game.rule;
 import coding.dojo.fizz.buzz.game.Rule;
 import coding.dojo.fizz.buzz.io.RoundInput;
 import coding.dojo.fizz.buzz.io.RoundOutput;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.function.Consumer;
 
@@ -20,6 +19,7 @@ public class DefaultRule implements Rule {
      */
     @Override
     public void check(RoundInput roundInput, Consumer<RoundOutput> outputConsumer) {
-        throw new NotImplementedException();
+        RoundOutput outputToGive = roundInput.createOutput();
+        outputConsumer.accept(outputToGive);
     }
 }
