@@ -2,7 +2,9 @@ package coding.dojo.fizz.buzz.game;
 
 import coding.dojo.fizz.buzz.io.GameInput;
 import coding.dojo.fizz.buzz.io.GameOutput;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+import coding.dojo.fizz.buzz.io.RoundInput;
+
+import java.util.function.Consumer;
 
 /**
  * Classe gérant le jeu.<br/>
@@ -10,15 +12,20 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
  */
 public class Game {
 
+    private final RoundManager roundManager;
+
     public Game(RoundManager roundManager) {
-        throw new NotImplementedException();
+        this.roundManager = roundManager;
     }
+
     /**
      * Lance le jeu (a.k.a. boucle sur les entrées en lançant de nouveau tour).
-     * @param gameInput Entrée du jeu.
+     *
+     * @param gameInput  Entrée du jeu.
      * @param gameOutput Gestionnaire de sortie du jeu.
      */
     public void launch(GameInput gameInput, GameOutput gameOutput) {
-        throw new NotImplementedException();
+        Consumer<RoundInput> launchRound = roundInput -> roundManager.launch(roundInput, gameOutput::addRoundOutput);
+        gameInput.giveNext(launchRound);
     }
 }
