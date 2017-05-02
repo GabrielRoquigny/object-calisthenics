@@ -35,5 +35,6 @@ public class StringGameOutputTest {
 
         // Then
         verify(roundOutput).display(printStream);
+        verify(printStream).append("\n");
     }
 }

@@ -19,5 +19,6 @@ public class StringGameOutput implements GameOutput {
     @Override
     public void addRoundOutput(RoundOutput roundOutput) {
         roundOutput.display(stream);
+        stream.append("\n");
     }
 }
